@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium House - EdenGlade BnB & Events Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --eden-green: #2d5a3d;
+            --eden-gold: #c4a962;
+            --eden-cream: #faf8f3;
+            --eden-dark: #1a2f23;
+            --eden-light-green: #4a7c5c;
+            --eden-accent: #8b9d6f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--eden-dark);
+            background: var(--eden-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 243, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(45, 90, 61, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--eden-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--eden-green);
+        }
+
+        .back-btn {
+            background: transparent;
+            color: var(--eden-green);
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            border: 2px solid var(--eden-green);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--eden-green);
+            color: white;
+        }
+
+        .book-now-btn {
+            background: var(--eden-green);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            border: 2px solid var(--eden-green);
+            transition: all 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            background: var(--eden-gold);
+            border-color: var(--eden-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--eden-green);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .house-hero {
+            margin-top: 90px;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(45, 90, 61, 0.85) 0%, rgba(74, 124, 92, 0.75) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a7c5c" width="1200" height="800"/><g fill-opacity="0.15"><rect fill="%23fff" x="100" y="100" width="300" height="200" rx="10"/><rect fill="%23fff" x="500" y="300" width="400" height="250" rx="10"/><rect fill="%23fff" x="800" y="150" width="250" height="180" rx="10"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .house-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(196, 169, 98, 0.3) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .house-badge {
+            display: inline-block;
+            background: var(--eden-gold);
+            color: var(--eden-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-details {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .hero-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-detail-item span {
+            font-size: 1.5rem;
+        }
+
+        .hero-detail-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Image Gallery */
+        .gallery-section {
+            max-width: 1400px;
+            margin: -80px auto 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--eden-green) 0%, var(--eden-light-green) 100%);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 5;
+        }
+
+        .gallery-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-label {
+            opacity: 1;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        /* House Details */
+        .house-details {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--eden-green);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--eden-gold);
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--eden-dark);
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-box {
+            background: var(--eden-cream);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--eden-green);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateX(5px);
+            border-left-color: var(--eden-gold);
+        }
+
+        .feature-box-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-box h3 {
+            font-size: 1.5rem;
+            color: var(--eden-green);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-box p {
+            color: var(--eden-dark);
+            line-height: 1.7;
+        }
+
+        /* Amenities List */
+        .amenities-section {
+            margin-top: 3rem;
+        }
+
+        .amenities-section h2 {
+            font-size: 2rem;
+            color: var(--eden-green);
+            margin-bottom: 2rem;
+        }
+
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .amenities-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid rgba(45, 90, 61, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .amenities-list li:hover {
+            background: var(--eden-cream);
+            border-color: var(--eden-green);
+            transform: translateX(5px);
+        }
+
+        .amenities-list li::before {
+            content: '✓';
+            color: var(--eden-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Room Details */
+        .rooms-section {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--eden-cream);
+        }
+
+        .room-card {
+            background: linear-gradient(135deg, var(--eden-cream) 0%, #e8f5e9 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .room-card h3 {
+            font-size: 1.8rem;
+            color: var(--eden-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .room-card-icon {
+            font-size: 2rem;
+        }
+
+        .room-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .room-feature-tag {
+            background: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--eden-dark);
+            border: 1px solid rgba(45, 90, 61, 0.2);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .price-display {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--eden-cream);
+        }
+
+        .price-amount {
+            font-size: 3rem;
+            color: var(--eden-green);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .price-period {
+            color: var(--eden-dark);
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--eden-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid rgba(45, 90, 61, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--eden-green);
+        }
+
+        .submit-booking {
+            background: var(--eden-green);
+            color: white;
+            padding: 1.25rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+        }
+
+        .submit-booking:hover {
+            background: var(--eden-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 169, 98, 0.3);
+        }
+
+        .quick-info {
+            background: var(--eden-cream);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .quick-info h3 {
+            font-size: 1.5rem;
+            color: var(--eden-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            font-size: 1.1rem;
+            color: var(--eden-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-content p {
+            color: var(--eden-dark);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Kitchen Highlights */
+        .kitchen-section {
+            background: linear-gradient(135deg, var(--eden-green) 0%, var(--eden-light-green) 100%);
+            color: white;
+            padding: 4rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .kitchen-section h2 {
+            font-size: 2.5rem;
+            color: var(--eden-gold);
+            margin-bottom: 2rem;
+        }
+
+        .kitchen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .kitchen-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kitchen-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .kitchen-item-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .kitchen-item h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .kitchen-item p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            background: var(--eden-cream);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--eden-dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--eden-green);
+            font-size: 1.1rem;
+        }
+
+        .stars {
+            color: var(--eden-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--eden-gold) 0%, var(--eden-accent) 100%);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: var(--eden-green);
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: var(--eden-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--eden-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .kitchen-section {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--eden-cream);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .house-hero {
+                margin-top: 80px;
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-details {
+                gap: 1rem;
+            }
+
+            .gallery-section {
+                margin: -40px auto 0;
+                padding: 0 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+
+            .house-details {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .amenities-list {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .kitchen-section,
+            .testimonial-section,
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .kitchen-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-detail-item {
+                padding: 0.75rem 1rem;
+            }
+
+            .price-amount {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <img src="images/logo.jpeg" alt="EdenGlade Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html" class="back-btn">← Back to Home</a></li>
+                <li><a href="booking.html" class="book-now-btn">Book Now</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- House Hero -->
+    <section class="house-hero">
+        <div class="hero-content">
+            <span class="house-badge">PREMIUM ACCOMMODATION</span>
+            <h1>The House Name</h1>
+            <p>Experience luxury living in our exquisitely designed 3-bedroom house</p>
+            <div class="hero-details">
+                <div class="hero-detail-item">
+                    <span>🛏️</span>
+                    <p>3 Bedrooms</p>
+                </div>
+                <div class="hero-detail-item">
+                    <span>🚿</span>
+                    <p>3 Bathrooms</p>
+                </div>
+                <div class="hero-detail-item">
+                    <span>👥</span>
+                    <p>Sleeps 6</p>
+                </div>
+                <div class="hero-detail-item">
+                    <span>📺</span>
+                    <p>Smart TVs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/exterior.jpg" alt="House Exterior View">
+                <div class="gallery-label">Exterior View</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/living.jpg" alt="Living Room">
+                <div class="gallery-label">Living Room</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/kitchen.jpg" alt="Modern Kitchen">
+                <div class="gallery-label">Modern Kitchen</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/bed.jpg" alt="Master Bedroom">
+                <div class="gallery-label">Master Bedroom</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/bath.jpg" alt="Luxury Bathroom">
+                <div class="gallery-label">Luxury Bathroom</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- House Details -->
+        <div>
+            <div class="house-details">
+                <h2 class="section-title">About This House</h2>
+                <p class="description">
+                    Welcome to The Garden Villa, one of our four exclusive premium houses at EdenGlade. This beautifully appointed residence offers the perfect blend of elegance, comfort, and modern convenience. With three spacious bedrooms, each featuring its own private bathroom and entertainment system, this house is ideal for families, groups of friends, or business travelers seeking a luxurious retreat.
+                </p>
+                <p class="description">
+                    Every detail has been carefully curated to ensure your stay exceeds expectations. From the state-of-the-art kitchen with touch-button sink to the comfortable lounge area perfect for relaxation, this house provides everything you need for an unforgettable stay.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <span class="feature-box-icon">✨</span>
+                        <h3>Premium Quality</h3>
+                        <p>Maintained to the highest standards with regular professional cleaning and quality assurance checks.</p>
+                    </div>
+                    <div class="feature-box">
+                        <span class="feature-box-icon">🔒</span>
+                        <h3>Privacy & Security</h3>
+                        <p>Secure property with private entrance, parking, and 24/7 security monitoring for your peace of mind.</p>
+                    </div>
+                    <div class="feature-box">
+                        <span class="feature-box-icon">🌿</span>
+                        <h3>Natural Setting</h3>
+                        <p>Surrounded by lush gardens and serene landscapes, offering tranquility while remaining easily accessible.</p>
+                    </div>
+                    <div class="feature-box">
+                        <span class="feature-box-icon">💫</span>
+                        <h3>Luxury Amenities</h3>
+                        <p>All modern conveniences and premium amenities to make your stay comfortable and memorable.</p>
+                    </div>
+                </div>
+
+                <!-- Rooms Section -->
+                <div class="rooms-section">
+                    <h2 class="section-title">Bedrooms</h2>
+                    
+                    <div class="room-card">
+                        <h3><span class="room-card-icon">🛏️</span> Master Bedroom</h3>
+                        <p>Spacious master suite with king-size bed, offering ultimate comfort and privacy. Features stunning views and direct access to the garden.</p>
+                        <div class="room-features">
+                            <span class="room-feature-tag">King-Size Bed</span>
+                            <span class="room-feature-tag">En-Suite Bathroom</span>
+                            <span class="room-feature-tag">Smart TV</span>
+                            <span class="room-feature-tag">Walk-in Closet</span>
+                            <span class="room-feature-tag">Air Conditioning</span>
+                            <span class="room-feature-tag">Garden View</span>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <h3><span class="room-card-icon">🛏️</span> Bedroom 2</h3>
+                        <p>Elegant bedroom with queen-size bed, perfect for couples or individual guests seeking comfort and style.</p>
+                        <div class="room-features">
+                            <span class="room-feature-tag">Queen-Size Bed</span>
+                            <span class="room-feature-tag">Private Bathroom</span>
+                            <span class="room-feature-tag">Smart TV</span>
+                            <span class="room-feature-tag">Built-in Wardrobe</span>
+                            <span class="room-feature-tag">Air Conditioning</span>
+                        </div>
+                    </div>
+
+                    <div class="room-card">
+                        <h3><span class="room-card-icon">🛏️</span> Bedroom 3</h3>
+                        <p>Cozy bedroom with twin beds that can be converted to a king, offering flexibility for your needs.</p>
+                        <div class="room-features">
+                            <span class="room-feature-tag">Twin/King Beds</span>
+                            <span class="room-feature-tag">Private Bathroom</span>
+                            <span class="room-feature-tag">Smart TV</span>
+                            <span class="room-feature-tag">Closet Space</span>
+                            <span class="room-feature-tag">Air Conditioning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amenities -->
+                <div class="amenities-section">
+                    <h2>House Amenities</h2>
+                    <ul class="amenities-list">
+                        <li>High-Speed WiFi (Fiber)</li>
+                        <li>Smart TVs in All Rooms</li>
+                        <li>Air Conditioning</li>
+                        <li>Heating System</li>
+                        <li>Premium Bedding & Linens</li>
+                        <li>Plush Towels</li>
+                        <li>Hair Dryers</li>
+                        <li>Iron & Ironing Board</li>
+                        <li>Washing Machine</li>
+                        <li>Tumble Dryer</li>
+                        <li>Secure Parking (2 Cars)</li>
+                        <li>Outdoor Seating Area</li>
+                        <li>BBQ Facilities</li>
+                        <li>Garden Access</li>
+                        <li>Welcome Pack</li>
+                        <li>24/7 Guest Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Kitchen Section -->
+            <div class="kitchen-section">
+                <h2>State-of-the-Art Kitchen</h2>
+                <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem;">
+                    Our fully equipped modern kitchen is a chef's dream, featuring premium appliances and everything you need to prepare delicious meals during your stay.
+                </p>
+                <div class="kitchen-grid">
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">🚰</span>
+                        <h3>Touch-Button Sink</h3>
+                        <p>Modern sink with button-operated controls for easy use and water conservation.</p>
+                    </div>
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">🍳</span>
+                        <h3>Premium Cookware</h3>
+                        <p>Complete set of pots, pans, and cooking utensils for all your culinary needs.</p>
+                    </div>
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">❄️</span>
+                        <h3>Modern Appliances</h3>
+                        <p>Full-size refrigerator, oven, stove, microwave, and dishwasher included.</p>
+                    </div>
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">☕</span>
+                        <h3>Coffee Station</h3>
+                        <p>Nespresso machine, kettle, toaster, and blender for your convenience.</p>
+                    </div>
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">🍽️</span>
+                        <h3>Complete Dining Set</h3>
+                        <p>Plates, glasses, cutlery, and serving dishes for 8+ guests.</p>
+                    </div>
+                    <div class="kitchen-item">
+                        <span class="kitchen-item-icon">🧊</span>
+                        <h3>Full Pantry Basics</h3>
+                        <p>Salt, pepper, oil, spices, and cooking essentials provided.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="testimonial-section">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-quote">
+                    "Our stay at The Garden Villa was absolutely perfect. The house exceeded all expectations - from the luxurious bedrooms to the stunning kitchen. The attention to detail is remarkable, and the natural surroundings made our stay truly special. We'll definitely be back!"
+                </p>
+                <p class="testimonial-author">— The Naidoo Family</p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Ready to Experience EdenGlade?</h2>
+                <p>Book your stay today and discover the perfect blend of elegance, comfort, and luxury</p>
+                <div class="cta-buttons">
+                    <a href="#booking" class="cta-btn cta-btn-primary">Check Availability</a>
+                    <a href="edenglade.html#contact" class="cta-btn cta-btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Booking Card -->
+            <div class="booking-card" id="booking">
+                <div class="price-display">
+                    <div class="price-amount">$65</div>
+                    <div class="price-period">per night</div>
+                </div>
+                
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="check-in">Check-in</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="check-out">Check-out</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="">Select guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dining">Dining Option</label>
+                        <select id="dining" required>
+                            <option value="">Select option</option>
+                            <option value="bnb">Bed & Breakfast (+R150/person)</option>
+                            <option value="self">Self-Catering</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-booking">Reserve Now</button>
+                </form>
+            </div>
+
+            <!-- Quick Info -->
+            <div class="quick-info">
+                <h3>Quick Information</h3>
+                
+                <div class="info-item">
+                    <span class="info-icon">⏰</span>
+                    <div class="info-content">
+                        <h4>Check-in / Check-out</h4>
+                        <p>2:00 PM / 10:00 AM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">🚗</span>
+                    <div class="info-content">
+                        <h4>Parking</h4>
+                        <p>Free on-site parking for 2 cars</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">🐾</span>
+                    <div class="info-content">
+                        <h4>Pets</h4>
+                        <p>Please inquire for pet-friendly options</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">🚭</span>
+                    <div class="info-content">
+                        <h4>Smoking</h4>
+                        <p>Non-smoking property</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">❌</span>
+                    <div class="info-content">
+                        <h4>Cancellation</h4>
+                        <p>Free cancellation up to 48 hours</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 EdenGlade BnB & Events Center. All rights reserved.</p>
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--eden-gold); margin-top: 1rem;">A unique blend of elegance, comfort and luxury</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 120;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form validation and submission
+        const bookingForm = document.querySelector('.booking-form');
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const checkIn = document.getElementById('check-in').value;
+            const checkOut = document.getElementById('check-out').value;
+            const guests = document.getElementById('guests').value;
+            const dining = document.getElementById('dining').value;
+
+            if (checkIn && checkOut && guests && dining) {
+                alert(`Booking request received!\n\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nGuests: ${guests}\nDining: ${dining}\n\nWe'll contact you shortly to confirm your reservation.`);
+            }
+        });
+
+        // Set minimum date for check-in to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('check-in').setAttribute('min', today);
+
+        // Update check-out minimum date based on check-in selection
+        document.getElementById('check-in').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('check-out').setAttribute('min', minCheckOut);
+        });
+
+        // Gallery item click (could be expanded to open lightbox)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Future: Open lightbox gallery
+                console.log('Gallery item clicked');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Booking - EdenGlade BnB & Events Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --eden-green: #2d5a3d;
+            --eden-gold: #c4a962;
+            --eden-cream: #faf8f3;
+            --eden-dark: #1a2f23;
+            --eden-light-green: #4a7c5c;
+            --eden-accent: #8b9d6f;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--eden-dark);
+            background: var(--eden-cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--eden-green) 0%, var(--eden-light-green) 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(196, 169, 98, 0.2) 0%, transparent 50%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .brand-motto {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--eden-gold);
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+        
+        /* Booking Container */
+        .booking-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            background-color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--eden-green);
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--eden-gold);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--eden-dark);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+        
+        /* Form Sections */
+        .form-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--eden-green);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--eden-gold);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--eden-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--eden-dark);
+            background-color: white;
+            border: 2px solid rgba(45, 90, 61, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--eden-green);
+            box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d5a3d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--eden-green);
+            color: white;
+            border: 2px solid var(--eden-green);
+            padding: 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            border-radius: 50px;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--eden-gold);
+            border-color: var(--eden-gold);
+            color: var(--eden-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 169, 98, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, var(--eden-green) 0%, var(--eden-light-green) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--eden-gold);
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--eden-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--eden-gold);
+        }
+        
+        .footer-tagline {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--eden-gold);
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: 1rem;
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--eden-gold);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .back-link:hover {
+            background-color: var(--eden-gold);
+            color: var(--eden-dark);
+            transform: translateY(-3px);
+        }
+        
+        .required {
+            color: var(--eden-gold);
+        }
+
+        .info-box {
+            background: var(--eden-cream);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--eden-green);
+            margin-bottom: 2rem;
+        }
+
+        .info-box p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--eden-dark);
+        }
+
+        .info-box strong {
+            color: var(--eden-green);
+        }
+        
+        @media (max-width: 768px) {
+            .booking-container {
+                margin: 2rem 1rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .brand-name {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="images/logo.jpeg" alt="EdenGlade Logo" class="logo">
+            <div class="brand-name">EdenGlade</div>
+            <div class="brand-motto">A unique blend of elegance, comfort and luxury</div>
+        </div>
+    </header>
+    
+    <!-- Booking Form Container -->
+    <div class="booking-container">
+        <h1 class="page-title">Make a Booking</h1>
+        <div class="divider"></div>
+        <p class="page-subtitle">
+            Please complete the booking form below and we'll get back to you shortly to confirm your reservation.
+        </p>
+
+        <div class="info-box">
+            <p><strong>🏡 Accommodation:</strong> 4 premium houses, each with 3 bedrooms</p>
+            <p><strong>🍽️ Dining:</strong> Choose between Bed & Breakfast or Self-Catering</p>
+            <p><strong>💒 Events:</strong> Beautiful venue space for weddings and celebrations</p>
+        </div>
+        
+        <form id="bookingForm" action="https://formsubmit.co/info@edenglade.co.za" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="New Booking Enquiry - EdenGlade BnB">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+            
+            <!-- Guest Information Section -->
+            <div class="form-section">
+                <h2 class="section-title">Guest Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="surname">Surname <span class="required">*</span></label>
+                        <input type="text" id="surname" name="surname" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="contactNumber" name="contactNumber" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Booking Details Section -->
+            <div class="form-section">
+                <h2 class="section-title">Booking Details</h2>
+                
+                <div class="form-group">
+                    <label for="bookingType">Booking Type <span class="required">*</span></label>
+                    <select id="bookingType" name="bookingType" required>
+                        <option value="">Select booking type...</option>
+                        <option value="Accommodation Only">Accommodation Only</option>
+                        <option value="Event + Accommodation">Event + Accommodation</option>
+                        <option value="Event Only">Event Only (Wedding/Celebration)</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-in Date <span class="required">*</span></label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkOut">Check-out Date <span class="required">*</span></label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="numberOfGuests">Number of Guests <span class="required">*</span></label>
+                        <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="24" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numberOfHouses">Number of Houses Needed <span class="required">*</span></label>
+                        <select id="numberOfHouses" name="numberOfHouses" required>
+                            <option value="">Select...</option>
+                            <option value="1">1 House</option>
+                            <option value="2">2 Houses</option>
+                            <option value="3">3 Houses</option>
+                            <option value="4">4 Houses (All)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="diningOption">Dining Option <span class="required">*</span></label>
+                    <select id="diningOption" name="diningOption" required>
+                        <option value="">Select dining option...</option>
+                        <option value="Bed & Breakfast">Bed & Breakfast</option>
+                        <option value="Self-Catering">Self-Catering</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Event Details (Optional) -->
+            <div class="form-section" id="eventSection" style="display: none;">
+                <h2 class="section-title">Event Details</h2>
+                
+                <div class="form-group">
+                    <label for="eventType">Event Type</label>
+                    <select id="eventType" name="eventType">
+                        <option value="">Select event type...</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Family Gathering">Family Gathering</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate" name="eventDate">
+                </div>
+                
+                <div class="form-group">
+                    <label for="expectedAttendees">Expected Number of Attendees</label>
+                    <input type="number" id="expectedAttendees" name="expectedAttendees" min="1">
+                </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="form-section">
+                <h2 class="section-title">Additional Information</h2>
+                
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests or Additional Notes</label>
+                    <textarea id="specialRequests" name="specialRequests" placeholder="Please let us know if you have any special requirements, dietary restrictions, accessibility needs, or any other requests..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="howDidYouHear">How did you hear about us?</label>
+                    <select id="howDidYouHear" name="howDidYouHear">
+                        <option value="">Select...</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Friend/Family Referral">Friend/Family Referral</option>
+                        <option value="Previous Guest">Previous Guest</option>
+                        <option value="Wedding Venue Website">Wedding Venue Website</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submitBtn">SUBMIT BOOKING REQUEST</button>
+            
+            <div class="success-message" id="successMessage">
+                <p style="font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--eden-gold);">✓ Thank You!</p>
+                <p style="font-size: 1rem;">Your booking request has been received. We'll be in touch within 24 hours to confirm your reservation.</p>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">EdenGlade BnB & Events Center</div>
+        <div class="footer-tagline">A unique blend of elegance, comfort and luxury</div>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </footer>
+    
+    <script>
+        // Show/hide event section based on booking type
+        document.getElementById('bookingType').addEventListener('change', function() {
+            const eventSection = document.getElementById('eventSection');
+            const eventType = document.getElementById('eventType');
+            const eventDate = document.getElementById('eventDate');
+            
+            if (this.value.includes('Event')) {
+                eventSection.style.display = 'block';
+                eventType.required = true;
+                eventDate.required = true;
+            } else {
+                eventSection.style.display = 'none';
+                eventType.required = false;
+                eventDate.required = false;
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'SUBMITTING...';
+        });
+        
+        // Set minimum dates to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').setAttribute('min', today);
+        document.getElementById('eventDate').setAttribute('min', today);
+        
+        // Update check-out minimum date based on check-in
+        document.getElementById('checkIn').addEventListener('change', function() {
+            const checkInDate = new Date(this.value);
+            checkInDate.setDate(checkInDate.getDate() + 1);
+            const minCheckOut = checkInDate.toISOString().split('T')[0];
+            document.getElementById('checkOut').setAttribute('min', minCheckOut);
+        });
+    </script>
+</body>
+</html>
