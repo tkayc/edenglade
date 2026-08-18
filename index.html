@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EdenGlade BnB & Events Center - A Unique Blend of Elegance, Comfort and Luxury</title>
+    <title>EdenGlade | Cape Town Guest House</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -426,10 +426,11 @@
         }
 
         .card-features li::before {
-            content: '✓';
-            color: var(--eden-green);
-            font-weight: bold;
-            font-size: 1.2rem;
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: var(--eden-green);
+            flex-shrink: 0;
         }
 
         /* Features Section */
@@ -555,8 +556,11 @@
         }
 
         .events-list li::before {
-            content: '🌿';
-            font-size: 1.5rem;
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: var(--eden-green);
+            flex-shrink: 0;
         }
 
         /* Dining Options */
@@ -851,9 +855,8 @@
             <img src="images/logo.jpeg" alt="EdenGlade Logo" class="logo">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#houses">Accommodations</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="#houses">The House</a></li>
+                <li><a href="#gallery">Photos</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="booking.html" class="book-btn">Book Now</a></li>
             </ul>
@@ -869,10 +872,10 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>EdenGlade</h1>
-            <p class="hero-tagline">A unique blend of elegance, comfort and luxury</p>
+            <p class="hero-tagline">A comfortable Cape Town home, yours to book</p>
             <div class="hero-cta">
-                <a href="#houses" class="cta-primary">Explore Our Houses</a>
-                <a href="#events" class="cta-secondary">Plan Your Event</a>
+                <a href="booking.html" class="cta-primary">Book Your Stay</a>
+                <a href="#gallery" class="cta-secondary">View Photos</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -942,17 +945,15 @@
 
     <section id="accommodations">
         <div class="section-header">
-            <h2>Luxury Accommodations</h2>
-            <p>Experience unparalleled comfort in our meticulously designed houses, each offering the perfect blend of
-                modern amenities and natural serenity.</p>
+            <h2>The House</h2>
+            <p>A private 3-bedroom home in Cape Town, set up for a comfortable self-catering stay.</p>
         </div>
         <div class="accommodations-grid">
             <div class="accommodation-card">
-                <div class="card-image" style="background-image: url('images/h3.jpg');"></div>
+                <div class="card-image" style="background-image: url('images/exterior.jpg');"></div>
                 <div class="card-content">
-                    <h3>Premium House</h3>
-                    <p>Each of our 4 exclusive houses on the property features 3 beautifully appointed rooms designed
-                        for your ultimate comfort.</p>
+                    <h3>Entire Home</h3>
+                    <p>Book the whole house for yourself — three bedrooms, a lounge, kitchen, and garden, with space for up to 6 guests.</p>
                     <ul class="card-features">
                         <li>3 Spacious Bedrooms</li>
                         <li>Private Bathroom & Shower in Each Room</li>
@@ -964,10 +965,10 @@
                 </div>
             </div>
             <div class="accommodation-card">
-                <div class="card-image" style="background-image: url('images/mkitchen.jpg');"></div>
+                <div class="card-image" style="background-image: url('images/kitchen.jpg');"></div>
                 <div class="card-content">
                     <h3>Fully Equipped Kitchen</h3>
-                    <p>Our kitchens have everything you need for a comfortable home-away-from-home stay.</p>
+                    <p>The kitchen has everything you need for a comfortable home-away-from-home stay.</p>
                     <ul class="card-features">
                         <li>Stove, Oven & Fridge</li>
                         <li>Complete Cookware Collection</li>
@@ -979,10 +980,10 @@
                 </div>
             </div>
             <div class="accommodation-card">
-                <div class="card-image" style="background-image: url('images/ammenity.jpg');"></div>
+                <div class="card-image" style="background-image: url('images/living.jpg');"></div>
                 <div class="card-content">
-                    <h3>Luxury Amenities</h3>
-                    <p>Every detail has been carefully considered to ensure your stay exceeds expectations.</p>
+                    <h3>What You Get</h3>
+                    <p>WiFi, parking, a lounge, and the everyday extras that make a self-catering stay easy.</p>
                     <ul class="card-features">
                         <li>High-Speed WiFi Throughout</li>
                         <li>Climate Control</li>
@@ -1001,24 +1002,24 @@
         <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
             <h2
                 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); color: #2d5a3d; margin-bottom: 1rem; position: relative; display: inline-block;">
-                Our Premium Houses</h2>
+                Book This House</h2>
             <div
                 style="content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: #c4a962;">
             </div>
             <p style="font-size: 1.1rem; color: #4a7c5c; max-width: 700px; margin: 2rem auto 0; line-height: 1.8;">
-                Choose from our collection of 4 exclusive houses, each offering the perfect blend of luxury and comfort.
+                One private house in Cape Town. Sleeps 6. Ready when you are.
             </p>
         </div>
 
         <div class="houses-grid"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            style="display: grid; grid-template-columns: minmax(280px, 520px); gap: 2rem; justify-content: center;">
 
-            <!-- House 1 - The Garden Villa -->
+            <!-- The House -->
             <a href="houseOne.html" class="house-tile" style="text-decoration: none; color: inherit;">
                 <div
                     style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.4s ease; cursor: pointer; height: 100%;">
                     <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: #2d5a3d;">
-                        <img src="images/h1.jpg" alt="The Garden Villa"
+                        <img src="images/exterior.jpg" alt="EdenGlade Guest House"
                             style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         <div
                             style="position: absolute; top: 1rem; right: 1rem; background: #c4a962; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
@@ -1027,145 +1028,18 @@
                     <div style="padding: 2rem;">
                         <h3
                             style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #2d5a3d; margin-bottom: 1rem;">
-                            Emerald Villa</h3>
-                        <p style="color: #1a2f23; margin-bottom: 1.5rem; line-height: 1.7;">Experience luxury living
-                            with stunning garden views and premium amenities throughout.</p>
+                            EdenGlade</h3>
+                        <p style="color: #1a2f23; margin-bottom: 1.5rem; line-height: 1.7;">A private 3-bedroom home in Cape Town with a kitchen, lounge, and garden — yours exclusively for your stay.</p>
                         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
                             <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🛏️
+                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">
                                 3 Bedrooms</span>
                             <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🚿
+                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">
                                 3 Bathrooms</span>
                             <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">📺
-                                Smart TVs</span>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(45, 90, 61, 0.1);">
-                            <div>
-                                <span
-                                    style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #2d5a3d; font-weight: 700;">R1,250</span>
-                                <span style="color: #4a7c5c; font-size: 0.9rem;">/night</span>
-                                <div style="color: #4a7c5c; font-size: 0.85rem; margin-top: 0.2rem;">3 nights R3,600</div>
-                            </div>
-                            <span style="color: #c4a962; font-weight: 600; font-size: 0.95rem;">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- House 2 - The Forest Retreat -->
-            <a href="houseOne.html" class="house-tile" style="text-decoration: none; color: inherit;">
-                <div
-                    style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.4s ease; cursor: pointer; height: 100%;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: #4a7c5c;">
-                        <img src="images/h2.jpg" alt="The Forest Retreat"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: #c4a962; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
-                            AVAILABLE</div>
-                    </div>
-                    <div style="padding: 2rem;">
-                        <h3
-                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #2d5a3d; margin-bottom: 1rem;">
-                            Sapphire Suite</h3>
-                        <p style="color: #1a2f23; margin-bottom: 1.5rem; line-height: 1.7;">Surrounded by nature,
-                            perfect for those seeking tranquility and natural beauty.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🛏️
-                                3 Bedrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🚿
-                                3 Bathrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">📺
-                                Smart TVs</span>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(45, 90, 61, 0.1);">
-                            <div>
-                                <span
-                                    style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #2d5a3d; font-weight: 700;">R1,250</span>
-                                <span style="color: #4a7c5c; font-size: 0.9rem;">/night</span>
-                                <div style="color: #4a7c5c; font-size: 0.85rem; margin-top: 0.2rem;">3 nights R3,600</div>
-                            </div>
-                            <span style="color: #c4a962; font-weight: 600; font-size: 0.95rem;">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- House 3 - The Sunrise Lodge -->
-            <a href="houseOne.html" class="house-tile" style="text-decoration: none; color: inherit;">
-                <div
-                    style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.4s ease; cursor: pointer; height: 100%;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: #c4a962;">
-                        <img src="images/h3.jpg" alt="The Sunrise Lodge"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: #2d5a3d; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
-                            AVAILABLE</div>
-                    </div>
-                    <div style="padding: 2rem;">
-                        <h3
-                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #2d5a3d; margin-bottom: 1rem;">
-                            Jasper Lodge</h3>
-                        <p style="color: #1a2f23; margin-bottom: 1.5rem; line-height: 1.7;">Wake up to breathtaking
-                            sunrise views and enjoy the peaceful morning atmosphere.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🛏️
-                                3 Bedrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🚿
-                                3 Bathrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">📺
-                                Smart TVs</span>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(45, 90, 61, 0.1);">
-                            <div>
-                                <span
-                                    style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #2d5a3d; font-weight: 700;">R1,250</span>
-                                <span style="color: #4a7c5c; font-size: 0.9rem;">/night</span>
-                                <div style="color: #4a7c5c; font-size: 0.85rem; margin-top: 0.2rem;">3 nights R3,600</div>
-                            </div>
-                            <span style="color: #c4a962; font-weight: 600; font-size: 0.95rem;">View Details →</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- House 4 - The Serenity Suite -->
-            <a href="houseOne.html" class="house-tile" style="text-decoration: none; color: inherit;">
-                <div
-                    style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); transition: all 0.4s ease; cursor: pointer; height: 100%;">
-                    <div style="width: 100%; height: 250px; position: relative; overflow: hidden; background: #8b9d6f;">
-                        <img src="images/h4.jpg" alt="The Serenity Suite"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; top: 1rem; right: 1rem; background: #c4a962; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">
-                            AVAILABLE</div>
-                    </div>
-                    <div style="padding: 2rem;">
-                        <h3
-                            style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #2d5a3d; margin-bottom: 1rem;">
-                            Amethyst Suite</h3>
-                        <p style="color: #1a2f23; margin-bottom: 1.5rem; line-height: 1.7;">Ultimate peace and privacy
-                            with elegant design and exceptional comfort.</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🛏️
-                                3 Bedrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">🚿
-                                3 Bathrooms</span>
-                            <span
-                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">📺
-                                Smart TVs</span>
+                                style="background: #faf8f3; padding: 0.4rem 0.75rem; border-radius: 15px; font-size: 0.85rem; color: #2d5a3d;">
+                                Sleeps 6</span>
                         </div>
                         <div
                             style="display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(45, 90, 61, 0.1);">
@@ -1224,68 +1098,29 @@
     <!-- Features Section -->
     <div class="features">
         <div class="section-header">
-            <h2 style="color: var(--eden-gold);">Why Choose EdenGlade</h2>
-            <p style="color: rgba(255, 255, 255, 0.9);">We pride ourselves on maintaining the highest standards to
-                ensure your experience is nothing short of exceptional.</p>
+            <h2 style="color: var(--eden-gold);">Why Stay Here</h2>
+            <p style="color: rgba(255, 255, 255, 0.9);">A private Cape Town house with the basics done well — space, a kitchen, parking, and a quiet place to come back to.</p>
         </div>
         <div class="features-grid">
             <div class="feature-item">
-                <span class="feature-icon">⭐</span>
                 <h3>Highest Standards</h3>
                 <p>Every aspect of our property is maintained to the highest quality standards, ensuring your comfort
                     and satisfaction.</p>
             </div>
             <div class="feature-item">
-                <span class="feature-icon">🏡</span>
-                <h3>4 Exclusive Houses</h3>
-                <p>Choose from our collection of 4 premium houses, each offering privacy, space, and luxury amenities.
-                </p>
+                <h3>Entire House</h3>
+                <p>Book the whole home for yourself. Three bedrooms, a lounge, kitchen, and garden — private and self-contained.</p>
             </div>
             <div class="feature-item">
-                <span class="feature-icon">🌳</span>
-                <h3>Serene Location</h3>
-                <p>Nestled in a peaceful setting, our property offers the perfect escape while remaining conveniently
-                    accessible.</p>
+                <h3>Cape Town Location</h3>
+                <p>A peaceful home base in Cape Town, with parking on site and easy access to the city.</p>
             </div>
             <div class="feature-item">
-                <span class="feature-icon">🛏️</span>
-                <h3>Flexible Options</h3>
-                <p>Whether you're here for business, leisure, or celebration, we cater to your every need with
-                    flexibility and care.</p>
+                <h3>Sleeps 6</h3>
+                <p>Ideal for families or a small group of friends. Stay a night or a few — rates are listed below.</p>
             </div>
         </div>
     </div>
-
-    <!-- Events Section -->
-    <section id="events">
-        <div class="section-header">
-            <h2>Events & Celebrations</h2>
-            <p>Create unforgettable memories in our stunning event space, perfect for weddings and special occasions.
-            </p>
-        </div>
-        <div class="events-showcase">
-            <div class="events-image">
-                <img src="images/event.jpg" alt="EdenGlade Wedding Venue">
-            </div>
-            <div class="events-content">
-                <h3>Your Dream Wedding Venue</h3>
-                <p>Our dedicated event space provides the perfect backdrop for your special day. From intimate
-                    ceremonies to grand celebrations, EdenGlade offers a beautiful setting surrounded by natural beauty.
-                </p>
-                <ul class="events-list">
-                    <li>Spacious Outdoor Wedding Venue</li>
-                    <li>Accommodation for Wedding Party & Guests</li>
-                    <li>Professional Event Coordination Available</li>
-                    <li>Customizable Space for Your Vision</li>
-                    <li>Private & Exclusive Use</li>
-                    <li>Stunning Natural Surroundings</li>
-                </ul>
-                <a href="contact.html" class="cta-primary" style="display: inline-block; margin-top: 2rem;">Inquire
-                    About
-                    Events</a>
-            </div>
-        </div>
-    </section>
 
     <!-- Dining Options -->
     <section id="dining">
@@ -1296,16 +1131,14 @@
         </div>
         <div class="dining-options">
             <div class="dining-card">
-                <span class="dining-icon">☕</span>
                 <h3>Bed & Breakfast</h3>
                 <p>Start your day right with our delicious breakfast service. Wake up to fresh, locally-sourced
                     ingredients prepared with care, allowing you to begin your day relaxed and energized.</p>
             </div>
             <div class="dining-card">
-                <span class="dining-icon">🍳</span>
                 <h3>Self-Catering</h3>
-                <p>Prefer to cook your own meals? Our fully equipped kitchens provide everything you need. Enjoy the
-                    flexibility and comfort of preparing your favorite dishes in your own space.</p>
+                <p>Prefer to cook your own meals? The fully equipped kitchen has everything you need. Enjoy the
+                    flexibility of preparing your favourite dishes in your own space.</p>
             </div>
         </div>
     </section>
@@ -1327,7 +1160,7 @@
                 <div style="width: 80px; height: 3px; background: #c4a962; margin: 0 auto 1.5rem;"></div>
                 <p
                     style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto; line-height: 1.8;">
-                    Discover the beauty and elegance of our premium property through our photo gallery</p>
+                    Discover the house through our photo gallery</p>
             </div>
 
             <!-- Main Slideshow Container -->
@@ -1382,19 +1215,7 @@
                             <h3
                                 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.5rem; color: #c4a962;">
                                 Living Spaces</h3>
-                            <p style="font-size: 1rem; opacity: 0.9;">Comfortable lounges perfect for relaxation</p>
-                        </div>
-                    </div>
-
-                    <div class="slide" style="display: none; position: relative;">
-                        <img src="images/event.jpg" alt="Event Space"
-                            style="width: 100%; height: 600px; object-fit: cover; display: block;">
-                        <div
-                            style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 3rem 2rem 2rem; color: white;">
-                            <h3
-                                style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.5rem; color: #c4a962;">
-                                Event Venue</h3>
-                            <p style="font-size: 1rem; opacity: 0.9;">Perfect setting for weddings and celebrations</p>
+                            <p style="font-size: 1rem; opacity: 0.9;">A comfortable lounge for relaxing after a day out</p>
                         </div>
                     </div>
 
@@ -1419,7 +1240,7 @@
                     <!-- Slide Counter -->
                     <div
                         style="position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.6); color: white; padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.95rem; backdrop-filter: blur(10px); z-index: 10;">
-                        <span id="currentSlide">1</span> / <span id="totalSlides">6</span>
+                        <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
                     </div>
                 </div>
 
@@ -1447,12 +1268,7 @@
                     </div>
                     <div class="thumbnail" onclick="currentSlide(5)"
                         style="width: 120px; height: 80px; cursor: pointer; border-radius: 10px; overflow: hidden; border: 3px solid transparent; transition: all 0.3s ease; opacity: 0.6;">
-                        <img src="images/event.jpg" alt="Thumbnail 5"
-                            style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="thumbnail" onclick="currentSlide(6)"
-                        style="width: 120px; height: 80px; cursor: pointer; border-radius: 10px; overflow: hidden; border: 3px solid transparent; transition: all 0.3s ease; opacity: 0.6;">
-                        <img src="images/bath.jpg" alt="Thumbnail 6"
+                        <img src="images/bath.jpg" alt="Thumbnail 5"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
@@ -1566,7 +1382,7 @@
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => {
                 changeSlide(1);
-            }, 5000);
+            }, 4000);
         }
 
         // Stop auto-advance when user manually navigates
@@ -1647,15 +1463,9 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 EdenGlade BnB & Events Center. All rights reserved.</p>
+        <p>&copy; 2026 EdenGlade. All rights reserved.</p>
         <p>Cape Town, South Africa 8001 · Jamie · <a href="tel:+27636530958" style="color: inherit;">+27 63 653 0958</a></p>
-        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--eden-gold);">A unique blend
-            of elegance, comfort and luxury</p>
-        <div class="social-links">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="WhatsApp">💬</a>
-        </div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--eden-gold);">A comfortable Cape Town home, yours to book</p>
     </footer>
 
     <script>

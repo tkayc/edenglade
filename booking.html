@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make a Booking - EdenGlade BnB & Events Center</title>
+    <title>Book EdenGlade | Cape Town Guest House</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -361,7 +361,7 @@
         <div class="header-content">
             <img src="images/logo.jpeg" alt="EdenGlade Logo" class="logo">
             <div class="brand-name">EdenGlade</div>
-            <div class="brand-motto">A unique blend of elegance, comfort and luxury</div>
+            <div class="brand-motto">A comfortable Cape Town home, yours to book</div>
         </div>
     </header>
     
@@ -374,15 +374,14 @@
         </p>
 
         <div class="info-box">
-            <p><strong>🏡 Accommodation:</strong> 4 houses, each with 3 bedrooms</p>
-            <p><strong>💰 Rates:</strong> R1,250 per night · 3 nights R3,600</p>
-            <p><strong>🍽️ Dining:</strong> Choose between Bed & Breakfast or Self-Catering</p>
-            <p><strong>💒 Events:</strong> Beautiful venue space for weddings and celebrations</p>
+            <p><strong>The house:</strong> Entire 3-bedroom home, sleeps 6</p>
+            <p><strong>Rates:</strong> R1,250 per night · 3 nights R3,600</p>
+            <p><strong>Dining:</strong> Bed &amp; Breakfast or self-catering</p>
         </div>
         
         <form id="bookingForm" action="https://formsubmit.co/info@edenglade.co.za" method="POST">
             <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" value="New Booking Enquiry - EdenGlade BnB">
+            <input type="hidden" name="_subject" value="New Booking Enquiry - EdenGlade">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
@@ -420,16 +419,6 @@
             <div class="form-section">
                 <h2 class="section-title">Booking Details</h2>
                 
-                <div class="form-group">
-                    <label for="bookingType">Booking Type <span class="required">*</span></label>
-                    <select id="bookingType" name="bookingType" required>
-                        <option value="">Select booking type...</option>
-                        <option value="Accommodation Only">Accommodation Only</option>
-                        <option value="Event + Accommodation">Event + Accommodation</option>
-                        <option value="Event Only">Event Only (Wedding/Celebration)</option>
-                    </select>
-                </div>
-                
                 <div class="form-row">
                     <div class="form-group">
                         <label for="checkIn">Check-in Date <span class="required">*</span></label>
@@ -442,22 +431,10 @@
                     </div>
                 </div>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="numberOfGuests">Number of Guests <span class="required">*</span></label>
-                        <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="24" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="numberOfHouses">Number of Houses Needed <span class="required">*</span></label>
-                        <select id="numberOfHouses" name="numberOfHouses" required>
-                            <option value="">Select...</option>
-                            <option value="1">1 House</option>
-                            <option value="2">2 Houses</option>
-                            <option value="3">3 Houses</option>
-                            <option value="4">4 Houses (All)</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="numberOfGuests">Number of Guests <span class="required">*</span></label>
+                    <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="6" required>
+                    <p style="font-size: 0.85rem; color: #4a7c5c; margin-top: 0.4rem;">The house sleeps up to 6 guests.</p>
                 </div>
                 
                 <div class="form-group">
@@ -467,34 +444,6 @@
                         <option value="Bed & Breakfast">Bed & Breakfast</option>
                         <option value="Self-Catering">Self-Catering</option>
                     </select>
-                </div>
-            </div>
-            
-            <!-- Event Details (Optional) -->
-            <div class="form-section" id="eventSection" style="display: none;">
-                <h2 class="section-title">Event Details</h2>
-                
-                <div class="form-group">
-                    <label for="eventType">Event Type</label>
-                    <select id="eventType" name="eventType">
-                        <option value="">Select event type...</option>
-                        <option value="Wedding">Wedding</option>
-                        <option value="Anniversary">Anniversary</option>
-                        <option value="Birthday">Birthday</option>
-                        <option value="Corporate Event">Corporate Event</option>
-                        <option value="Family Gathering">Family Gathering</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="eventDate">Event Date</label>
-                    <input type="date" id="eventDate" name="eventDate">
-                </div>
-                
-                <div class="form-group">
-                    <label for="expectedAttendees">Expected Number of Attendees</label>
-                    <input type="number" id="expectedAttendees" name="expectedAttendees" min="1">
                 </div>
             </div>
             
@@ -515,7 +464,6 @@
                         <option value="Social Media">Social Media</option>
                         <option value="Friend/Family Referral">Friend/Family Referral</option>
                         <option value="Previous Guest">Previous Guest</option>
-                        <option value="Wedding Venue Website">Wedding Venue Website</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -524,7 +472,7 @@
             <button type="submit" class="submit-btn" id="submitBtn">SUBMIT BOOKING REQUEST</button>
             
             <div class="success-message" id="successMessage">
-                <p style="font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--eden-gold);">✓ Thank You!</p>
+                <p style="font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--eden-gold);">Thank You!</p>
                 <p style="font-size: 1rem;">Your booking request has been received. We'll be in touch within 24 hours to confirm your reservation.</p>
             </div>
         </form>
@@ -532,30 +480,13 @@
     
     <!-- Footer -->
     <footer>
-        <div class="footer-brand">EdenGlade BnB & Events Center</div>
+        <div class="footer-brand">EdenGlade</div>
         <div class="footer-tagline">Cape Town, South Africa 8001 · Jamie · <a href="tel:+27636530958" style="color: inherit;">+27 63 653 0958</a></div>
-        <div class="footer-tagline">A unique blend of elegance, comfort and luxury</div>
+        <div class="footer-tagline">A comfortable Cape Town home, yours to book</div>
         <a href="index.html" class="back-link">← Back to Home</a>
     </footer>
     
     <script>
-        // Show/hide event section based on booking type
-        document.getElementById('bookingType').addEventListener('change', function() {
-            const eventSection = document.getElementById('eventSection');
-            const eventType = document.getElementById('eventType');
-            const eventDate = document.getElementById('eventDate');
-            
-            if (this.value.includes('Event')) {
-                eventSection.style.display = 'block';
-                eventType.required = true;
-                eventDate.required = true;
-            } else {
-                eventSection.style.display = 'none';
-                eventType.required = false;
-                eventDate.required = false;
-            }
-        });
-
         // Form submission
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
             const btn = document.getElementById('submitBtn');
@@ -566,7 +497,6 @@
         // Set minimum dates to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('checkIn').setAttribute('min', today);
-        document.getElementById('eventDate').setAttribute('min', today);
         
         // Update check-out minimum date based on check-in
         document.getElementById('checkIn').addEventListener('change', function() {
